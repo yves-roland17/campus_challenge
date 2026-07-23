@@ -41,7 +41,7 @@ export default function FormParticipation({eventId}:{eventId: number}) {
   
                 <textarea
                     name="description"
-                  rows="8"
+                  rows={8}
                   placeholder="Expliquez votre réalisation..."
                   className="w-full border rounded-lg p-3"
                 ></textarea>

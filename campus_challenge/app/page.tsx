@@ -2,6 +2,8 @@
 import Footer from "@/components/footer";
 import ChallengeCard from "@/components/defis";
 import {prisma} from '@/lib/prisma'
+
+export const dynamic = "force-dynamic";
  
 export default async function Home() {
   const challenge= await prisma.event.findMany({
@@ -41,7 +43,7 @@ export default async function Home() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
          { challenge.map((defi)=>{
           return(
-          <ChallengeCard  key={defi.id} title={defi.title} description={defi.description} date={defi.date} image={defi.image} user={defi.user} id={defi.id}/>
+          <ChallengeCard  key={defi.id} title={defi.title} description={defi.description} date={defi.date}  user={defi.user} id={defi.id}/>
         )
          }) }
 

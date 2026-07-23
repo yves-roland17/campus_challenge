@@ -5,14 +5,13 @@ type defi={
   title:string,
   description:string,
   date:Date,
-  image:string,
   user:{
     name:string
   },
   id:number
 }
 
-export default async function ChallengeCard({title,description,date,image,user,id}:defi) {
+export default async function ChallengeCard({title,description,date,user,id}:defi) {
  
   return (
     <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">

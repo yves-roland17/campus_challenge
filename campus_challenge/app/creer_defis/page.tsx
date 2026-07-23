@@ -4,14 +4,19 @@ import Footer from "@/components/footer";
 import { creeEvent } from "../actions";
 import { startTransition, useActionState } from "react";
 export default function CreerDefis() {
-  const initialState = {
-  success: false,
-  errors: {},
+type CreeEventState =
+  | { error: { title?: string[]; description?: string[]; date?: string[]; image?: string[] }; success?: undefined }
+  | { success: string; error?: undefined };
+
+const initialState: CreeEventState = {
+  error: {},
+  success: undefined,
 };
-   const [state, formAction, pending] = useActionState(
-    creeEvent,
-    initialState
-  );
+
+const [state, formAction, pending] = useActionState(
+  creeEvent,
+  initialState
+);
   
   return (
     <>
@@ -73,7 +78,7 @@ export default function CreerDefis() {
               </label>
 
               <textarea
-                rows="7"
+                rows={7}
                 placeholder="Décrivez le défi..."
                 name="description"
                 className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 outline-none"

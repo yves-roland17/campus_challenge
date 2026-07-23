@@ -6,10 +6,14 @@ import { mise_ajour_profils } from "@/app/actions";
 
 
 export function ProfileForm({ user }: { user: { name: string; email: string } }) {
+const initialState:
+  | { error: { name?: string[]; email?: string[]; password?: string[]; role?: string[] }; success?: undefined }
+  | { success: string; error?: undefined } = {
+    error: {},
+    success: undefined,
+  };
 
-    const initialState = { success: false, error: {} };
-  const [state, formulAction, pending] = useActionState(mise_ajour_profils, initialState)
-
+const [state, formulAction, pending] = useActionState(mise_ajour_profils, initialState);
   return (
     <>
 

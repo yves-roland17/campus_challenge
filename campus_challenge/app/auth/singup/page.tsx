@@ -5,9 +5,18 @@ import Footer from "@/components/footer";
 import { creeParticipation, inscription } from "@/app/actions";
 import { useActionState } from "react";
 export default function RegisterPage() {
-const initialState = {
-  success: false,
-  errors: {},
+const initialState: {
+  error: {
+    name?: string[];
+    email?: string[];
+    password?: string[];
+    role?: string[];
+  };
+  messaageUser?: undefined;
+  messaage?: undefined;
+  success?: undefined;
+} = {
+  error: {},
 };
 
 const [state, formulAction, pending] = useActionState(
